@@ -7,9 +7,14 @@ const cookieParser = require('cookie-parser');
 const cors = require('cors');
 
 const routes = require('./routes/root');
+const userRoutes = require('./routes/userRoutes');
 const corsOptions = require('./config/corsOptions');
-const { logger } = require('./middleware/logger');
+const { logger, logEvents } = require('./middleware/logger');
 const errorHandler = require('./middleware/errorHandler');
+const connectDB = require('./config/dbConn');
+const mongoose = require('mongoose');
+
+connectDB();
 
 app.use(logger);
 
@@ -24,6 +29,7 @@ app.use(cookieParser());
 app.use('/', express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
+app.use('/users', userRoutes);
 
 app.all('*', (req, res) => {
   res.status(404);
@@ -38,6 +44,17 @@ app.all('*', (req, res) => {
 
 app.use(errorHandler);
 
-app.listen(PORT, () => {
-  console.log(`Server is running on port: ${PORT}`);
+mongoose.connection.once('open', () => {
+  console.log('Connected to MongoDB.');
+  app.listen(PORT, () => {
+    console.log(`Server is running on port: ${PORT}`);
+  });
+});
+
+mongoose.connection.on('error', (err) => {
+  console.log(err);
+  logEvents(
+    `${err.no}: ${err.code}\t${err.syscall}\t${err.hostname}`,
+    'mongoErrLog.log'
+  );
 });
