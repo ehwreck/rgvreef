@@ -1,13 +1,402 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: "Nunito", sans-serif;
+  /* font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: rgb(45, 100, 135);
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+img {
+  width: 100%;
+}
+
+.section {
+  padding: 30px 0px;
+}
+
+.column__section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.row__section {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.stretch_children_height {
+  align-items: stretch;
+}
+
+.row__section > div {
+  width: 100%;
+}
+
+.full_height_width__child {
+  align-items: stretch;
+  align-content: stretch;
+  flex-wrap: nowrap;
+}
+
+.full_height_width__child > div {
+  width: 100%;
+  padding: 1rem;
+}
+
+.offset__background {
+  background-color: rgb(239, 237, 231);
+}
+
+.dark__background {
+  background: rgb(43, 145, 171);
+  color: white;
+}
+
+.navigation__button {
+  border: 0px;
+  border-radius: 25px;
+  padding: 10px 25px;
+  background: white;
+  color: rgb(45, 100, 135);
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-wrap: nowrap;
+  cursor: pointer;
+}
+
+.dark__button {
+  background: rgb(43, 145, 171);
+  color: white;
+}
+
+.content_slider {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-block: 1rem;
+  position: relative;
+}
+
+.content_slider_data_box {
+  position: absolute;
+  z-index: -1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  opacity: 1;
+  transition: all 1s ease-in;
+}
+
+.content_slider_control__buttons {
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.icon__button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 1rem;
+  color: rgb(45, 100, 135);
+}
+
+.content_slider_navigation__button {
+  font-size: 2.5rem;
+  margin: auto;
+}
+
+.recent_posts_container {
+  display: flex;
+  flex-direction: row;
+  padding-bottom: 40px;
+}
+
+.recent_post {
+  height: 50vh;
+  width: 50%;
+}
+
+.hovered__post {
+  width: 100%;
+  transition: all 1s ease-in;
+}
+
+#restore_habitat {
+  background-image: url("assets/images/marko-blazevic-4ibyBpL6bBA-unsplash.jpg");
+  height: max-content;
+}
+
+#pattern {
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  background-repeat: repeat;
+  z-index: -1;
+}
+
+#section-4 {
+  padding: 0px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: stretch;
+  align-content: stretch;
+  flex-wrap: nowrap;
+}
+
+#section-4 > div {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+#section-4 > div > img {
+  display: block;
+}
+
+#section-5 {
+}
+
+/* Helper classes */
+.relative {
+  position: relative;
+  z-index: 0;
+}
+
+.absolute {
+  position: absolute;
+  z-index: -1;
+}
+
+.no__padding {
+  padding: 0px !important;
+}
+
+.no_top__padding {
+  padding-top: 0px;
+}
+
+.no_bottom__padding {
+  padding-bottom: 0px;
+}
+
+.no_left__padding {
+  padding-left: 0px;
+}
+
+.no_right__padding {
+  padding-right: 0px;
+}
+
+.no_block__padding {
+  padding-block: 0px;
+}
+
+.no_inline__padding {
+  padding-inline: 0px;
+}
+
+.xs__size {
+  font-size: 1rem;
+}
+
+.xs_s__size {
+  font-size: 1.5rem;
+}
+
+.s__size {
+  font-size: 2rem;
+}
+
+.s_m__size {
+  font-size: 2.5rem;
+}
+
+.m__size {
+  font-size: 3rem;
+}
+
+.m_l__size {
+  font-size: 3.5rem;
+}
+
+.l__size {
+  font-size: 4rem;
+}
+
+.thin__weight {
+  font-weight: 200;
+}
+
+.normal__weight {
+  font-weight: 400;
+}
+
+.bold__weight {
+  font-weight: 600;
+}
+
+.extra_bold_weight {
+  font-weight: 800;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.capitalize {
+  text-transform: capitalize;
+}
+
+.lowercase {
+  text-transform: lowercase;
+}
+
+.w_50 {
+  width: 50%;
+}
+
+.w_60 {
+  width: 60%;
+}
+
+.w_70 {
+  width: 70%;
+}
+
+.w_80 {
+  width: 80%;
+}
+
+.w_90 {
+  width: 90%;
+}
+
+.w_100 {
+  width: 100%;
+}
+
+.auto__margin {
+  margin: auto;
+}
+
+.inline_auto__margin {
+  margin-inline: auto;
+}
+
+.block_auto__margin {
+  margin-block: auto;
+}
+
+.l10_r5__margin {
+  margin-left: 10px;
+  margin-right: 5px;
+}
+
+.l5_r10__margin {
+  margin-left: 5px;
+  margin-right: 10px;
+}
+
+.l20_r10__margin {
+  margin-left: 20px;
+  margin-right: 10px;
+}
+
+.l10_r20__margin {
+  margin-left: 10px;
+  margin-right: 20px;
+}
+
+.l0_r3__margin {
+  margin-left: 0rem;
+  margin-right: 3rem;
+}
+
+.l3_r0__margin {
+  margin-left: 3rem;
+  margin-right: 0rem;
+}
+
+.no__margin {
+  margin: 0px;
+}
+
+.no_top__margin {
+  margin-top: 0px;
+}
+
+.no_bottom__margin {
+  margin-bottom: 0px;
+}
+
+.no_block__margin {
+  margin-block: 0px;
+}
+
+.no_left__margin {
+  margin-left: 0px;
+}
+
+.no_right__margin {
+  margin-right: 0px;
+}
+
+.no_inline__margin {
+  margin-inline: 0px;
+}
+
+.t_10__margin {
+  margin-top: 10px;
+}
+.t_20__margin {
+  margin-top: 20px;
+}
+.t_30__margin {
+  margin-top: 30px;
+}
+.b_10__margin {
+  margin-bottom: 10px;
+}
+.b_20__margin {
+  margin-bottom: 20px;
+}
+.b_30__margin {
+  margin-bottom: 30px;
+}
+
+.hidden {
+  opacity: 0;
+  transition: all 0.1s ease-in;
+}
+
+.visible {
+  opacity: 1;
+  transition: all 0.3s ease-in;
+}
+
+.nunito_normal {
+  font-family: "Nunito", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
 }
